@@ -1,0 +1,56 @@
+    1  ls -l
+    2  head -1 tmdb-movies.csv
+    3  wc -l tmdb-movies.csv
+    4  chmod +x 00_prep.sh
+    5  ./00_prep.sh
+    6  head -1 tmdb.tsv | awk -F'\t' '{for(i=1;i<=NF;i++) print i": "$i}'
+    7  { head -1 tmdb.tsv ; tail -n +2 tmdb.tsv | sort -t$'\t' -k16,16r ; } > cau1_sapxep.tsv
+    8  head -6 cau1_sapxep.tsv | cut -f6,16
+    9  { head -1 tmdb.tsv ; awk -F'\t' 'NR>1 && $18 > 7.5' tmdb.tsv ; } > cau2_diemcao.tsv
+   10  wc -l < cau2_diemcao.tsv
+   11  sort -t$'\t' -k5,5nr tmdb.tsv | head -1 | awk -F'\t' '{print $6, "-", $5, "USD"}'
+   12  awk -F'\t' 'NR>1 && $5 > 0' tmdb.tsv | sort -t$'\t' -k5,5n | head -1 | awk -F'\t' '{print $6, "-", $5, "USD"}'
+   13  awk -F'\t' 'NR>1 && $5 == 0' tmdb.tsv | wc -l
+   14  awk -F'\t' 'NR>1 { tong += $5 } END { print "Tong doanh thu:", tong, "USD" }' tmdb.tsv
+   15  { head -1 tmdb.tsv ; awk -F'\t' 'NR>1 && $18 > 7.5' tmdb.tsv ; } > cau2_diemcao.tsv
+   16  awk -F'\t' 'NR>1 && $18 > 7.5' tmdb.tsv | wc -l
+   17  ls -l
+   18  head -1 tmdb-movies.csv
+   19  wc -l tmdb-movies.csv
+   20  chmod +x 00_prep.sh
+   21  ./00_prep.sh
+   22  head -1 tmdb.tsv | awk -F'\t' '{for(i=1;i<=NF;i++) print i": "$i}'
+   23  { head -1 tmdb.tsv ; tail -n +2 tmdb.tsv | sort -t$'\t' -k16,16r ; } > q1.tsv
+   24  head -6 q1.tsv | cut -f6,16
+   25  { head -1 tmdb.tsv ; awk -F'\t' 'NR>1 && $18 > 7.5' tmdb.tsv ; } > q2.tsv
+   26  awk -F'\t' 'NR>1 && $18 > 7.5' tmdb.tsv | wc -l
+   27  { head -1 tmdb.tsv ; awk -F'\t' 'NR > 1 && $18 > 7.5' tmdb.tsv ; } > q2.tsv
+   28  awk -F'\t' 'NR > 1 && $18 > 7.5' tmdb.tsv | wc -l
+   29  { head -1 tmdb.tsv ; awk -F'\t' 'NR>1 && $18>7.5' tmdb.tsv ; } > q2.tsv
+   30  awk -F'\t' 'NR>1 && $18>7.5' tmdb.tsv | wc -l
+   31  awk -F'\t' 'NR>1 && $18 > 7.5' tmdb.tsv | wc -l
+   32  awk -F'\t' 'NR>1 && $18 > 7' tmdb.tsv | wc -l
+   33  awk -F'\t' 'NR>1 && $18 >= 7' tmdb.tsv | wc -l
+   34  awk -F'\t' 'NR>1 && $18 >= 7.5' tmdb.tsv | wc -l
+   35  { head -1 tmdb.tsv ; awk -F'\t' 'NR>1 && $18>7.5' tmdb.tsv ; } > q2.tsv
+   36  awk -F'\t' 'NR>1 && $18>7.5' tmdb.tsv | wc -l
+   37  sort -t$'\t' -k5,5nr tmdb.tsv | head -1 | awk -F'\t' '{print $6, "-", $5, "USD"}'
+   38  awk -F'\t' 'NR>1 && $5 > 0' tmdb.tsv | sort -t$'\t' -k5,5n | head -1 | awk -F'\t' '{print $6, "-", $5, "USD"}'
+   39  awk -F'\t' 'NR>1 && $5 == 0' tmdb.tsv | wc -l
+   40  awk -F'\t' 'NR>1 { tong += $5 } END { print "Tong doanh thu:", tong, "USD" }' tmdb.tsv
+   41  awk -F'\t' 'NR>1 { tong += $5 } END { printf "Tong: %.2f ty USD\n", tong/1000000000 }' tmdb.tsv
+   42  awk -F'\t' 'NR>1 { print $5-$4 "\t" $6 }' tmdb.tsv | sort -k1,1nr | head -10
+   43  awk -F'\t' 'NR>1 { n=split($9,a,"|"); for(i=1;i<=n;i++) print a[i] }' tmdb.tsv | sort | uniq -c | sort -nr | head -10
+   44  awk -F'\t' 'NR>1 { n=split($7,a,"|"); for(i=1;i<=n;i++) print a[i] }' tmdb.tsv | sort | uniq -c | sort -nr | head -10
+   45  awk -F'\t' 'NR>1 { n=split($14,a,"|"); for(i=1;i<=n;i++) print a[i] }' tmdb.tsv | sort | uniq -c | sort -nr > cau7_theloai.txt
+   46  awk -F'\t' 'NR>1 { n=split($14,a,"|"); for(i=1;i<=n;i++) print a[i] }' tmdb.tsv | sort | uniq -c | sort -nr > q7.txt
+   47  cat q7.txt
+   48  awk '{tong += $1} END {print "Tong:", tong}' q7.txt
+   49  ./01_anal.sh > report.txt 2>&1
+   50  cat report.txt
+   51  ./01_anal.sh > report.txt 2>&1
+   52  cat report.txt
+   53  chmod +x 01_anal.sh
+   54  ./01_anal.sh > report.txt 2>&1
+   55  cat report.txt
+   56  history > command_history.txt
