@@ -96,9 +96,8 @@ The original CSV has 21 columns, including `budget`, `revenue`, `original_title`
 
 ## Results
 A fresh run of the supplied scripts on the included CSV produced:
-
 | Measure | Verified result |
-|---|---:|
+|---|---|
 | Movies prepared | 10,866 |
 | Movies with `vote_average > 7.5` | 350 |
 | Movies with recorded `revenue > 0` | 4,850 |
